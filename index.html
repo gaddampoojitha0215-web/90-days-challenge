@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>90-Day Workout Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>90-Day Workout Challenge</h1>
+    <p class="sub">Daily attendance. Stay consistent.</p>
+  </header>
+
+  <section class="card hero" aria-label="Progress">
+    <div class="hero-top">
+      <div class="ring" role="img" id="ringAria" aria-label="0 of 90 days complete">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="track" cx="60" cy="60" r="52" fill="none" stroke-width="11"></circle>
+          <circle class="bar" id="ringBar" cx="60" cy="60" r="52" fill="none" stroke-width="11" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+        </svg>
+        <div class="ring-label"><b id="ringNum">0</b><span>of 90 days</span></div>
+      </div>
+      <div class="hero-text">
+        <p class="status" id="status">Starts tomorrow</p>
+        <p class="status-sub" id="statusSub"></p>
+        <p class="pct" id="pct">0% completed</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="sPresent">0</b><span>Present</span></div>
+      <div class="stat"><b id="sLeft">90</b><span>Remaining</span></div>
+      <div class="stat"><b id="sStreak">0</b><span>Streak</span></div>
+      <div class="stat"><b id="sBest">0</b><span>Best streak</span></div>
+    </div>
+  </section>
+
+  <section class="card start" aria-label="Start date">
+    <div>
+      <label for="startDate">Challenge start date</label>
+      <span class="ends" id="endsOn"></span>
+    </div>
+    <input type="date" id="startDate" value="2026-10-26">
+  </section>
+
+  <section class="card" aria-label="Daily attendance">
+    <h2 class="section-title">Daily attendance</h2>
+    <p class="hint">Tap a day to mark it complete. Progress updates as you go.</p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <p class="range" id="range"></p>
+    <div class="grid" id="grid"></div>
+    <div class="legend" aria-hidden="true">
+      <span><i class="l-done"></i>Present</span>
+      <span><i class="l-miss"></i>Missed</span>
+      <span><i class="l-today"></i>Today</span>
+    </div>
+  </section>
+
+  <section class="card detail" aria-label="Selected day" aria-live="polite">
+    <div class="detail-head">
+      <h2 id="dTitle">Day 1</h2>
+      <p id="dDate"></p>
+    </div>
+    <div><span class="pill" id="dPill">Upcoming</span></div>
+    <button class="toggle" id="dToggle" type="button">Mark present</button>
+    <div>
+      <span class="field-label" id="focusLabel">Session focus</span>
+      <div class="chips" id="chips" role="group" aria-labelledby="focusLabel"></div>
+    </div>
+    <div>
+      <label class="field-label" for="note">Session notes</label>
+      <textarea id="note" placeholder="Lifts, sets, how the session went"></textarea>
+    </div>
+  </section>
+
+  <button class="toggle" id="saveBtn" type="button">Save progress</button>
+
+  <footer>
+    <span id="sync" role="status">Checking save status…</span>
+    <button class="reset" id="reset" type="button">Reset challenge</button>
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
